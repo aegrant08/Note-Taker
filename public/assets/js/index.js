@@ -1,17 +1,35 @@
+// Server
+const express = require("express");
+const path = require("path");
+const fs = require("fs");
+
+// Sets up the Express App
+//=============================================================
+const app = express();
+const PORT = 3000;
+
+// Sets up the Express app to handle data parsing
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+
 const $noteTitle = $(".note-title");
 const $noteText = $(".note-textarea");
 const $saveNoteBtn = $(".save-note");
 const $newNoteBtn = $(".new-note");
 const $noteList = $(".list-container .list-group");
 
+
 // activeNote is used to keep track of the note in the textarea
 let activeNote = {};
 
+// next three functions are the API routes to create
 // A function for getting all notes from the db
 const getNotes = () => {
   return $.ajax({
     url: "/api/notes",
     method: "GET",
+    // need to place code to read db.json file here
   });
 };
 
@@ -21,6 +39,7 @@ const saveNote = (note) => {
     url: "/api/notes",
     data: note,
     method: "POST",
+    // need to place code here to receive new note to save on the request body, add to json file and return the new note to user
   });
 };
 
@@ -29,6 +48,7 @@ const deleteNote = (id) => {
   return $.ajax({
     url: "api/notes/" + id,
     method: "DELETE",
+    // delete note code here
   });
 };
 
