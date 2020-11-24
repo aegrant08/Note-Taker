@@ -169,3 +169,9 @@ $noteText.on("keyup", handleRenderSaveBtn);
 
 // Gets and renders the initial list of notes
 getAndRenderNotes();
+
+// Starts the server to begin listening
+// =============================================================
+app.listen(PORT, function () {
+  console.log("App listening on PORT " + PORT);
+});
