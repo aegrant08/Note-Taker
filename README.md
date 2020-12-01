@@ -24,4 +24,12 @@ To install the dependencies, run `npm install`. You can use the application loca
 
 This assignment was an exercise in backend code and getting it to work with the front end code provided. It was good practice setting up a server using Express.
 
-# Usage
+# Technologies Used
+- Express
+- Node.js
+- JavaScript
+- AJAX
+- jQuery
+
+# License
+MIT
