@@ -14,8 +14,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
-// module.exports = app => {
-
 //Set up notes
 fs.readFile("db/db.json", "utf8", (err, data) => {
     if (err) throw err;
@@ -45,11 +43,11 @@ fs.readFile("db/db.json", "utf8", (err, data) => {
         updateNoteDb();
         console.log("Deleted note with id " + req.params.id);
     });
-
+    // calls the note html file
     app.get("/notes", function (req, res) {
         res.sendFile(path.join(mainDir, "notes.html"));
     });
-
+    // calls the index html file
     app.get("*", function (req, res) {
         res.sendFile(path.join(mainDir, "index.html"));
     });
@@ -62,7 +60,6 @@ fs.readFile("db/db.json", "utf8", (err, data) => {
         });
     }
 });
-// }
 
 // Starts the server to begin listening
 // =============================================================
