@@ -20,8 +20,8 @@ Clone the repository to your local machine:
 
 To install the dependencies, run `npm install`. You can use the application locally by running `node server.js` in your CLI, and then opening `http://localhost:3000` in your favorite browser. This app is also on Heroku for use.
 
-# Heroku Link
-[Application Link Here] (https://warm-reef-10273.herokuapp.com/)
+# Deployed Link
+[Note Taker Link Here](https://warm-reef-10273.herokuapp.com/)
 
 # Approach
 
