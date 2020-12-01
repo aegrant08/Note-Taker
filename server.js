@@ -7,14 +7,64 @@ const fs = require("fs");
 //=============================================================
 const app = express();
 const PORT = 3000;
+const mainDir = path.join(__dirname, "/public");
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static(_dirname));
+app.use(express.static("public"));
+
+// module.exports = app => {
+
+//Set up notes
+fs.readFile("db/db.json", "utf8", (err, data) => {
+    if (err) throw err;
+
+    const notes = JSON.parse(data);
+
+    //API routes
+    app.get("/api/notes", function (req, res) {
+        //Function to read the db.json file and return any saved notes as JSON
+        res.json(notes);
+    });
+    // /api/notes post
+    app.post("/api/notes", function (req, res) {
+        let newNote = req.body;
+        notes.push(newNote);
+        updateNoteDb();
+        return console.log("Added " + newNote.title);
+    });
+    // Retrieves note based on id
+    app.get("/api/notes/:id", function (req, res) {
+        res.json(notes[req.params.id]);
+    });
+    // Deletes note based on id
+    app.delete("/api/notes/:id", function (req, res) {
+        notes.splice(req.params.id, 1);
+        updateNoteDb();
+        console.log("Deleted note with id " + req.params.id);
+    });
+
+    app.get("/notes", function (req, res) {
+        res.sendFile(path.join(mainDir, "notes.html"));
+    });
+
+    app.get("*", function (req, res) {
+        res.sendFile(path.join(mainDir, "index.html"));
+    });
+
+    // function that updates the json file with new note or deleted note
+    function updateNoteDb() {
+        fs.writeFile("db/db.json", JSON.stringify(notes, "\t"), err => {
+            if (err) throw err
+            return true;
+        });
+    }
+});
+// }
 
 // Starts the server to begin listening
 // =============================================================
 app.listen(PORT, function () {
-    console.log("App listening on PORT " + PORT);
+    console.log("App listening on PORT " + PORT + " Don't forget to turn the PORT off!");
 });
