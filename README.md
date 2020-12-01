@@ -1,7 +1,17 @@
 # Note-Taker
 
 # Description
-This application is for those who wish to have a place to take notes and save them. The user can write a new note and save it. They can view notes they previously saved. The user can delete old notes as needed.
+This application is for those who wish to have a place to take notes and save them. 
+
+![Home](assets/screen-shots/1-landing-page.png?raw=true)
+
+The user can write a new note and save it. 
+
+![New Note](assets/screen-shots/2-example-notes.png?raw=true)
+
+They can view notes they previously saved. The user can delete old notes as needed.
+
+![Deleted Note](assets/screen-shots/3-deleted-note.png?raw=true)
 
 # Installation
 Clone the repository to your local machine:
@@ -13,3 +23,5 @@ To install the dependencies, run `npm install`. You can use the application loca
 # Approach
 
 This assignment was an exercise in backend code and getting it to work with the front end code provided. It was good practice setting up a server using Express.
+
+# Usage

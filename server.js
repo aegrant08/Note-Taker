@@ -36,7 +36,8 @@ fs.readFile("db/db.json", "utf8", (err, data) => {
     });
     // Retrieves note based on id
     app.get("/api/notes/:id", function (req, res) {
-        res.json(notes[req.params.id]);
+        let savedNotes = JSON.parse(fs.readFileSync("db/db.json"))
+        res.json(savedNotes[Number(req.params.id)]);
     });
     // Deletes note based on id
     app.delete("/api/notes/:id", function (req, res) {
