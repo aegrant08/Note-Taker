@@ -3,15 +3,15 @@
 # Description
 This application is for those who wish to have a place to take notes and save them. 
 
-![Home](../assets/screen-shots/1-landing-page.png?raw=true)
+![Home](public/assets/screen-shots/1-landing-page.png?raw=true)
 
 The user can write a new note and save it. 
 
-![New Note](../assets/screen-shots/2-example-notes.png?raw=true)
+![New Note](public/assets/screen-shots/2-example-notes.png?raw=true)
 
 They can view notes they previously saved. The user can delete old notes as needed.
 
-![Deleted Note](../assets/screen-shots/3-deleted-note.png?raw=true)
+![Deleted Note](public/assets/screen-shots/3-deleted-note.png?raw=true)
 
 # Installation
 Clone the repository to your local machine:
