@@ -1,18 +1,3 @@
-// Server
-const express = require("express");
-const path = require("path");
-const fs = require("fs");
-
-// Sets up the Express App
-//=============================================================
-const app = express();
-const PORT = 3000;
-
-// Sets up the Express app to handle data parsing
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-
-
 const $noteTitle = $(".note-title");
 const $noteText = $(".note-textarea");
 const $saveNoteBtn = $(".save-note");
@@ -29,7 +14,6 @@ const getNotes = () => {
   return $.ajax({
     url: "/api/notes",
     method: "GET",
-    // need to place code to read db.json file here
   });
 };
 
@@ -39,7 +23,6 @@ const saveNote = (note) => {
     url: "/api/notes",
     data: note,
     method: "POST",
-    // need to place code here to receive new note to save on the request body, add to json file and return the new note to user
   });
 };
 
@@ -48,7 +31,6 @@ const deleteNote = (id) => {
   return $.ajax({
     url: "api/notes/" + id,
     method: "DELETE",
-    // delete note code here
   });
 };
 
@@ -121,7 +103,7 @@ const handleRenderSaveBtn = function () {
   }
 };
 
-// Render's the list of note titles
+// Renders the list of note titles
 const renderNoteList = (notes) => {
   $noteList.empty();
 
@@ -169,9 +151,3 @@ $noteText.on("keyup", handleRenderSaveBtn);
 
 // Gets and renders the initial list of notes
 getAndRenderNotes();
-
-// Starts the server to begin listening
-// =============================================================
-app.listen(PORT, function () {
-  console.log("App listening on PORT " + PORT);
-});
